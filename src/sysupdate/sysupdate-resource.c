@@ -434,7 +434,6 @@ static int process_magic_file(
                 log_warning("Hash of best before marker file '%s' has unexpected value, proceeding anyway.", fn);
 
         usec_t best_before;
-        r = parse_calendar_date(e, &best_before);
 
         usec_t nw = now(CLOCK_REALTIME);
         if (best_before < nw) {

@@ -1,6 +1,7 @@
 # Liberated `systemd`
 Mass surveillance is bad, acctually. So here's a fork of `systemd` with surveillance enablement removed. However you use this, or do not, is your choice and yours alone.
 
+To see how I run testing for this fork, see: https://github.com/Jeffrey-Sardina/systemd-suite
 
 The original readme is included below.
 

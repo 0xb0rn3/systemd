@@ -8,10 +8,10 @@ The purpose of Liberated `systemd` is to do exactly one thing, and do it well: r
 What this also means is that Liberated `systemd` is not a divergent development project. It will not introduce new features, correct bugs or security issues, or implement optimizations. If you want to contribute to any of those things, the correct way to do so is to raise a PR against the base `systemd/systemd` repo. This repo exists only to remove surveillance enablement.
 
 ## How often is this updated (or, "why is Liberated `systemd` behind by X commits?")
-Liberated `systemd` will be updated at least weekly. I hope to automate this process soon, at which point updates will be near real-time. (If you want to help automate this, please feel free to raise a PR against  https://github.com/Jeffrey-Sardina/systemd-suite, which is where I am implementing testing and update automation).
+Liberated `systemd` will be updated at least weekly. I hope to automate this process soon, at which point updates will be near real-time. (If you want to help automate this, please feel free to raise a PR against https://github.com/Jeffrey-Sardina/systemd-suite, which is where I am implementing testing and update automation).
 
 ## How is Liberated `systemd` implemented?
-It's quite simple: `systemd`, very nicely, has atomic commits. There is exactly one commit (https://github.com/systemd/systemd/commit/acb6624fa19ddd68f9433fb0838db119fe18c3ed) that added in all tooling (both functional and data-wise) needed to enable age verification. I reversed this commit, and have kept all other changes since.
+It's quite simple: `systemd`, very nicely, has (mostly) atomic commits. There is exactly one commit (https://github.com/systemd/systemd/commit/acb6624fa19ddd68f9433fb0838db119fe18c3ed) that added in all tooling (both functional and data-wise) needed to enable age verification. I reversed the surveillance enablement in this commit, and have kept all other changes since. You can see the patch file used to revert the commit here: https://github.com/Jeffrey-Sardina/systemd-suite/blob/main/main.patch
 
 Since age collection is not needed for any aspect of `systemd`, this does not affect other aspects of `systemd`. Any downstream systems that attempt to call age-verification-related functions on Liberated `systemd` will therefore encounter an error. This is done by design. This is also why I have not simply created a "default age" as a lie -- it's about denying applications the ability to assume the presence of an API that enables mass surveillance.
 
